@@ -1,21 +1,7 @@
 from django.db import models
 from datetime import datetime
+from sova_market.resources import POSITIONS, cashier
 
-director = 'Di'
-admin = 'AD'
-salesman = 'SM'
-cashier = 'CA'
-cleaner = 'CL'
-courier = 'CR'
-
-POSITIONS = [
-    (director, 'Директор'),
-    (admin, 'Администратор'),
-    (salesman, 'Упаковщик'),
-    (cashier, 'Кассир'),
-    (cleaner, 'Уборщик'),
-    (courier, 'Курьер')
-]
 
 class Staff(models.Model):
     full_name = models.CharField(max_length=255)
