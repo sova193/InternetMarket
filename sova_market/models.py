@@ -1,3 +1,5 @@
+from django.contrib.auth.models import PermissionsMixin
+from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.db import models
 from datetime import datetime, timezone
 
@@ -45,7 +47,7 @@ class Order(models.Model):
 class ProductOrder(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    _amount = models.IntegerField(default = 1, db_column = 'amount')
+    _amount = models.IntegerField(default=1, db_column='amount')
 
     @property
     def amount(self):
@@ -66,6 +68,7 @@ class AbstractBaseUser(models.Model):
     last_login = models.DateTimeField(_('last login'), blank=True, null=True)
 
     is_active = True
+
 
 class AbstractUser(AbstractBaseUser, PermissionsMixin):
     """
