@@ -1,9 +1,22 @@
 from django.db import models
 
+director = 'Di'
+admin = 'AD'
+salesman = 'SM'
+cashier = 'CA'
+cleaner = 'CL'
+
+POSITIONS = [
+    (director, 'Директор'),
+    (admin, 'Администратор'),
+    (salesman, 'Упаковщик'),
+    (cashier, 'Кассир'),
+    (cleaner, 'Уборщик')
+]
 
 class Staff(models.Model):
     full_name = models.CharField(max_length=255)
-    position = models.CharField(max_length=255)
+    position = models.CharField(max_length=2, choices=POSITIONS, default=cashier)
     labor_contract = models.IntegerField()
 
 
