@@ -1,5 +1,7 @@
 from django.db import models
-from datetime import datetime
+from datetime import datetime, timezone
+
+from django.db.models import DateTimeField
 from sova_market.resources import POSITIONS, cashier
 
 
@@ -19,7 +21,7 @@ class Product(models.Model):
 
 
 class Order(models.Model):
-    time_in = models.DateTimeField(auto_now_add=True)
+    time_in: DateTimeField = models.DateTimeField(auto_now_add=True)
     time_out = models.DateTimeField(null=True)
     cost = models.FloatField(default=0.0)
     pickup = models.BooleanField(default=False)
