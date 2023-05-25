@@ -4,22 +4,24 @@ from datetime import datetime
 
 from django.db.models import DateTimeField
 
-director = 'Di'
-admin = 'AD'
-salesman = 'SM'
-cashier = 'CA'
-cleaner = 'CL'
-courier = 'CR'
 
-POSITIONS = [
-    (director, 'Директор'),
-    (admin, 'Администратор'),
-    (salesman, 'Упаковщик'),
-    (cashier, 'Кассир'),
-    (cleaner, 'Уборщик'),
-    (courier, 'Курьер')
-]
 class Staff(models.Model):
+    director = 'Di'
+    admin = 'AD'
+    salesman = 'SM'
+    cashier = 'CA'
+    cleaner = 'CL'
+    courier = 'CR'
+
+    POSITIONS = [
+        (director, 'Директор'),
+        (admin, 'Администратор'),
+        (salesman, 'Упаковщик'),
+        (cashier, 'Кассир'),
+        (cleaner, 'Уборщик'),
+        (courier, 'Курьер')
+    ]
+
     full_name = models.CharField(max_length=255)
     position = models.CharField(max_length=255, choices=POSITIONS, default=cashier)
     labor_contract = models.IntegerField()
