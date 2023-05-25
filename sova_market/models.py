@@ -43,7 +43,16 @@ class Order(models.Model):
 class ProductOrder(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    amount = models.IntegerField(default=1)
+    _amount = models.IntegerField(default = 1, db_column = 'amount')
+
+    @property
+    def amount(self):
+        return self._amount
+
+    @amount.setter
+    def amount(self, value):
+        self._amount = int(value) if value >= 0 else 0
+        self.save()
 
     def product_sum(self):
         product_price = self.product.price
