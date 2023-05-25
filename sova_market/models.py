@@ -6,13 +6,15 @@ admin = 'AD'
 salesman = 'SM'
 cashier = 'CA'
 cleaner = 'CL'
+courier = 'CR'
 
 POSITIONS = [
     (director, 'Директор'),
     (admin, 'Администратор'),
     (salesman, 'Упаковщик'),
     (cashier, 'Кассир'),
-    (cleaner, 'Уборщик')
+    (cleaner, 'Уборщик'),
+    (courier, 'Курьер')
 ]
 
 class Staff(models.Model):
