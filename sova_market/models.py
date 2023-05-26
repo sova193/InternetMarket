@@ -1,3 +1,4 @@
+from time import timezone
 
 from django.db import models
 from datetime import datetime
@@ -53,9 +54,9 @@ class Order(models.Model):
 
     def get_duration(self):
         if self.complete:  # если завершён, возвращаем разность объектов
-            return (self.time_out - self.time_in).total_seconds() // 60
+            return (self.time_out - self.time_in).total_seconds()
         else:  # если ещё нет, то сколько длится выполнение
-            return (datetime.now(timezone.utc) - self.time_in).total_seconds() // 60
+            return (datetime.now(timezone.utc) - self.time_in).total_seconds()
 
 
 class ProductOrder(models.Model):
