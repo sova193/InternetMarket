@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'templates',
     'django.contrib.sites',
     'django.contrib.flatpages',
-]
+    ]
 SITE_ID = 1
 
 MIDDLEWARE = [
