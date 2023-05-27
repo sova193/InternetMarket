@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'sova_market',
-    'simpleapp',
     'templates',
     'django.contrib.sites',
     'django.contrib.flatpages',
