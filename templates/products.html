@@ -1,4 +1,6 @@
 {% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
 
 {% block title %}
 Products
@@ -27,7 +29,7 @@ Products
                <td>{{ product.name }}</td>
                <td>{{ product.description|truncatewords:2 }}</td>
                <td>{{ product.category.name }}</td>
-               <td>{{ product.price }}</td>
+               <td>{{ product.price|currency }}</td>
                <td>{{ product.quantity }}</td>
            </tr>
            {% endfor %}
